@@ -1,19 +1,16 @@
 <template>
     
-        <div>dawda</div>
+        <div>{{oneRowArray}}</div>
     
 </template>  
 <script>
 
 export default {
-  props: {
-    myFunction: { type: Function },
-  },
     data(){
       return{
         
         }
-      },
+      },props:['oneRowArray'],
       mounted(){
             console.log(this.myFunction)
       }

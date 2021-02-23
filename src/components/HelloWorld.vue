@@ -1,8 +1,8 @@
 <template>
 <div>
-  <table v-for="(item,index) in table" :key="index" >
+  <table v-for="(item,index) in splitedArray" :key="index" >
          
-        <TableRow  :function="myFunction(item)"/>
+        <TableRow  v-bind:oneRowArray="item"/>
         <!-- передаю данные в таблицу-->
 
   </table>
@@ -18,11 +18,32 @@ export default {
         TableRow
     },
     computed:{
-        dataTable(items){
-          //получения массива 
-          return items
-          }
+        SplitingBaseArray(){
+
+          //функция разделение входного массива  
+           this.table.forEach((element,index) => {
+    
+              if(index===0 && index % this.rowCount===0){
+                console.log('new array created')
+
+              }else if(index){
+                console.log('iteration')
+
+              }else{
+                console.log('just')
+              }
+              
+          })
+          return this.table
+             
+      }},created(){
+         this.SplitingBaseArray
       },
+      mounted(){
+           
+            this.SplitingBaseArray
+      }
+      ,
     data(){
       return{
         table:[
@@ -69,6 +90,7 @@ export default {
             ]
           ],rowCount:4
         //количество строк
+        ,splitedArray:[]
         }
       }
 }
