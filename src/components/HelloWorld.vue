@@ -1,12 +1,11 @@
 <template>
-<div>
-  <table v-for="(item,index) in splitedArray" :key="index" >
+<table >
+  
         <!-- прохожу по массиву с масивами --> 
-        <TableRow  v-bind:oneRowArray="item"/>
+        <TableRow   v-for="(item,index) in splitedArray" :key="index" v-bind:oneRowArray="item"/>
         <!-- передаю данные в таблицу к дочерним компонентам-->
-
-  </table>
-</div>
+  
+</table>
 </template>  
 <script>
 
@@ -79,16 +78,6 @@ export default {
 
 </script>
 <style  scoped>
-td,tr{
-  border :2px solid black;
-  flex-basis: 10%;
-  }
 
-  table{
-    display: flex;
-    flex-wrap: wrap;
-    
-
-    }
 
 </style>
