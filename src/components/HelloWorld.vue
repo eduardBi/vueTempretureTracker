@@ -1,9 +1,9 @@
 <template>
 <div>
   <table v-for="(item,index) in splitedArray" :key="index" >
-         
+        <!-- прохожу по массиву с масивами --> 
         <TableRow  v-bind:oneRowArray="item"/>
-        <!-- передаю данные в таблицу-->
+        <!-- передаю данные в таблицу к дочерним компонентам-->
 
   </table>
 </div>
@@ -41,8 +41,7 @@ export default {
          this.SplitingBaseArray
       },
       mounted(){
-           
-            this.SplitingBaseArray
+          this.SplitingBaseArray
       }
       ,
     data(){
@@ -51,7 +50,8 @@ export default {
           
             {
                 id:1,
-                text:'my text'
+                text:'my text',
+                color:'rgba(100,200,200)'
             },{
               id:2,
               text:'new text'

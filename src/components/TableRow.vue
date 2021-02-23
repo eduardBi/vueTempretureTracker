@@ -1,6 +1,7 @@
-<template>
-    
-        <div>{{oneRowArray}}</div>
+<template >
+    <tr >
+        <td v-for="(singleObject,index) in oneRowArray" v-bind:style="{'background':singleObject.color}" :key="index">{{singleObject}}</td>
+    </tr>
     
 </template>  
 <script>
@@ -12,7 +13,7 @@ export default {
         }
       },props:['oneRowArray'],
       mounted(){
-            console.log(this.myFunction)
+            
       }
 }
 
