@@ -19,21 +19,22 @@ export default {
     },
     computed:{
         SplitingBaseArray(){
-
-          //функция разделение входного массива  
-           this.table.forEach((element,index) => {
-    
-              if(index===0 && index % this.rowCount===0){
-                console.log('new array created')
-
-              }else if(index){
-                console.log('iteration')
-
-              }else{
-                console.log('just')
-              }
-              
-          })
+          //функция разделения входного массива  
+            let currentArrayIndex=-1;
+            //по данному числу будет заполняться массив 
+              this.table.forEach((element,index) => {
+                  if( index===0 || index % this.rowCount===0){
+                    currentArrayIndex++;
+                    //перехожу на новый массив
+                    this.splitedArray.push([]);
+                    //создаю массив в массиве каждый из которых будет отправляться дочерним компонентам
+                    this.splitedArray[currentArrayIndex].push(element);
+                  }else {
+                    this.splitedArray[currentArrayIndex].push(element);
+                    //заполняю текущий массив 
+                  }
+              })
+          console.log(this.splitedArray)
           return this.table
              
       }},created(){
@@ -47,7 +48,7 @@ export default {
     data(){
       return{
         table:[
-          [
+          
             {
                 id:1,
                 text:'my text'
@@ -57,18 +58,7 @@ export default {
             },{
               id:3,
               text:'mine text'
-            },{
-                id:3,
-              text:'mine text'
-            },{
-                id:5,
-              text:'what about'
-            },{
-                id:3,
-              text:'new one'
-            }
-          ],[
-               {
+            },  {
                 id:1,
                 text:'my text'
             },{
@@ -77,17 +67,8 @@ export default {
             },{
               id:3,
               text:'mine text'
-            },{
-                id:3,
-              text:'mine text'
-            },{
-                id:5,
-              text:'what about'
-            },{
-                id:3,
-              text:'new one'
             }
-            ]
+            
           ],rowCount:4
         //количество строк
         ,splitedArray:[]
