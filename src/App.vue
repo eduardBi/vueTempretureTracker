@@ -1,6 +1,6 @@
 <template>
 <div  @mousedown=" checkMousePressed(true)"  @mouseup="checkMousePressed(false)" >
-      <Table       />
+      <Table   v-bind:isMouseClicked="isMouseClicked"     />
       <div  >{{isMouseClicked}}</div>
       </div>
 </template>  

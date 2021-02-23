@@ -2,8 +2,9 @@
 <table >
   
         <!-- прохожу по массиву с масивами --> 
-        <TableRow   v-for="(item,index) in splitedArray" :key="index" v-bind:oneRowArray="item"/>
+        <TableRow   v-for="(item,index) in splitedArray" :key="index" v-bind:oneRowArray="item" v-bind:isMouseClicked="isMouseClicked" />
         <!-- передаю данные в таблицу к дочерним компонентам-->
+        <div  >{{isMouseClicked}}</div>
   
 </table>
 </template>  
@@ -16,6 +17,7 @@ export default {
     components:{
         TableRow
     },
+    props:['isMouseClicked'],
     computed:{
         SplitingBaseArray(){
           //функция разделения входного массива  
@@ -41,6 +43,7 @@ export default {
       },
       mounted(){
           this.SplitingBaseArray
+          
       }
       ,
     data(){
