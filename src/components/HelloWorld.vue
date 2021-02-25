@@ -2,7 +2,7 @@
 <table >
   
         <!-- прохожу по массиву с масивами --> 
-        <TableRow   v-for="(item,index) in splitedArray" :key="index" v-bind:oneRowArray="item" :colorizeCellOnMouseOver="colorizeCellOnMouseOver" :colorizeCellOnMouseClick="colorizeCellOnMouseClick" />
+        <TableRow   v-for="(item,index) in splitedArray" :key="index" v-bind:oneRowArray="item"  :ArrayIndex="index" :colorizeCellOnMouseOver="colorizeCellOnMouseOver" :colorizeCellOnMouseClick="colorizeCellOnMouseClick" />
         <!-- передаю данные в таблицу к дочерним компонентам-->
         <div  >{{isMouseClicked}}</div>
   
@@ -18,15 +18,18 @@ export default {
         TableRow
     },
     methods: {
-      
-      colorizeCellOnMouseOver() {
+      colorizeCellOnMouseOver(ArrayIndex,singleObject) {
+        //закрашивает при наведении зажатой кнопки мыши
         if(this.isMouseClicked){
-          console.log('onMouseOver')
+          //если пкм зажата прохожу циклом по массиву 
+             this.splitedArray[ArrayIndex][singleObject.id]={...singleObject,color:"rgba(100,200,200)"}
+             console.log(this.splitedArray[ArrayIndex][singleObject.id])
         }
-
+        
       },
-       colorizeCellOnMouseClick(){
-           console.log('onMouseClick');
+       colorizeCellOnMouseClick(ArrayIndex,singleObject){
+         //закрашивает при клике на элемент
+           console.log(ArrayIndex,singleObject);
          }
     }
     ,
@@ -51,7 +54,8 @@ export default {
           console.log(this.splitedArray)
           return this.table
              
-      }},created(){
+      }
+      },created(){
          this.SplitingBaseArray
       },
       mounted(){
