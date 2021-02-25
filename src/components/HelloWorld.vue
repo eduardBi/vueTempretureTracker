@@ -18,12 +18,12 @@ export default {
         TableRow
     },
     methods: {
-      colorizeCellOnMouseOver(ArrayIndex,singleObject) {
+      colorizeCellOnMouseOver(ArrayIndex,itemID,singleObject) {
         //закрашивает при наведении зажатой кнопки мыши
         if(this.isMouseClicked){
           //если пкм зажата прохожу циклом по массиву 
-             this.splitedArray[ArrayIndex][singleObject.id]={...singleObject,color:"rgba(100,200,200)"}
-             console.log(this.splitedArray[ArrayIndex][singleObject.id])
+             this.splitedArray[ArrayIndex].splice(itemID,1,{...singleObject,color:'rgb(200,200,200)'})
+             console.log(ArrayIndex,singleObject)
         }
         
       },
@@ -78,6 +78,36 @@ export default {
               id:3,
               text:'mine text'
             },  {
+                id:1,
+                text:'my text',
+                color:'rgba(100,200,200)'
+            },{
+              id:2,
+              text:'new text'
+            },{
+              id:3,
+              text:'mine text'
+            }, {
+                id:1,
+                text:'my text',
+                color:'rgba(100,200,200)'
+            },{
+              id:2,
+              text:'new text'
+            },{
+              id:3,
+              text:'mine text'
+            }, {
+                id:1,
+                text:'my text',
+                color:'rgba(100,200,200)'
+            },{
+              id:2,
+              text:'new text'
+            },{
+              id:3,
+              text:'mine text'
+            } ,{
                 id:1,
                 text:'my text'
             },{
