@@ -2,7 +2,7 @@
 <table >
   
         <!-- прохожу по массиву с масивами --> 
-        <TableRow   v-for="(item,index) in splitedArray" :key="index" v-bind:oneRowArray="item" v-bind:isMouseClicked="isMouseClicked" />
+        <TableRow   v-for="(item,index) in splitedArray" :key="index" v-bind:oneRowArray="item" :colorizeCellOnMouseOver="colorizeCellOnMouseOver" :colorizeCellOnMouseClick="colorizeCellOnMouseClick" />
         <!-- передаю данные в таблицу к дочерним компонентам-->
         <div  >{{isMouseClicked}}</div>
   
@@ -17,6 +17,19 @@ export default {
     components:{
         TableRow
     },
+    methods: {
+      
+      colorizeCellOnMouseOver() {
+        if(this.isMouseClicked){
+          console.log('onMouseOver')
+        }
+
+      },
+       colorizeCellOnMouseClick(){
+           console.log('onMouseClick');
+         }
+    }
+    ,
     props:['isMouseClicked'],
     computed:{
         SplitingBaseArray(){

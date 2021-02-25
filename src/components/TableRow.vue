@@ -1,6 +1,6 @@
 <template >
     <tr >
-        <td v-for="(singleObject,index) in oneRowArray" v-bind:style="{'background':singleObject.color}" :key="index" >{{singleObject}}</td>
+        <td v-for="(singleObject,index) in oneRowArray" v-bind:style="{'background':singleObject.color}" :key="index"   @mouseover="colorizeCellOnMouseOver" @mousedown="colorizeCellOnMouseClick"   >{{singleObject}}</td>
         
     </tr>
     
@@ -12,10 +12,7 @@ export default {
       return{
           
         }
-      },props:['oneRowArray',"isMouseClicked"],
-      mounted(){
-            
-      }
+      },props:['oneRowArray',"isMouseClicked",'colorizeCellOnMouseOver','colorizeCellOnMouseClick'],
 }
 
 </script>
