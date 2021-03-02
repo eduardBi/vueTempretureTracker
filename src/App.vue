@@ -2,12 +2,15 @@
 <div  @mousedown=" checkMousePressed(true)"  @mouseup="checkMousePressed(false)" >
       <Table   v-bind:isMouseClicked="isMouseClicked"     />
       <div  >{{isMouseClicked}}</div>
+      <InputValue  v-bind:setTemperatureValue="setTemperatureValue"/>
       </div>
 </template>  
 <script>
 
 
-import Table from './components/HelloWorld.vue'
+import Table from './components/TableWrapper.vue'
+import InputValue from './components/InputValue'
+
 
 
 export default {
@@ -15,13 +18,16 @@ export default {
         return  {isMouseClicked:false}
       },
     components:{
-      Table
+      Table,InputValue
     },methods:{
         checkMousePressed(pressValue){
           // преверяю зажата ли лкм
           console.log(pressValue)
           this.isMouseClicked=pressValue
           return {}
+        },
+        setTemperatureValue(temperatue){
+          console.log(temperatue)
         }
       }
 }

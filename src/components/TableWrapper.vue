@@ -23,13 +23,13 @@ export default {
         if(this.isMouseClicked){
           //если пкм зажата прохожу циклом по массиву 
              this.splitedArray[ArrayIndex].splice(itemID,1,{...singleObject,color:'rgb(200,200,200)'})
-             console.log(ArrayIndex,singleObject)
+             
         }
         
       },
-       colorizeCellOnMouseClick(ArrayIndex,singleObject){
+       colorizeCellOnMouseClick(ArrayIndex,itemID,singleObject){
          //закрашивает при клике на элемент
-           console.log(ArrayIndex,singleObject);
+           this.splitedArray[ArrayIndex].splice(itemID,1,{...singleObject,color:'rgb(200,200,200)'})
          }
     }
     ,
@@ -55,8 +55,6 @@ export default {
           return this.table
              
       }
-      },created(){
-         this.SplitingBaseArray
       },
       mounted(){
           this.SplitingBaseArray
@@ -66,7 +64,6 @@ export default {
     data(){
       return{
         table:[
-          
             {
                 id:1,
                 text:'my text',
