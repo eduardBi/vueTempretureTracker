@@ -2,23 +2,26 @@
 <div  @mousedown=" checkMousePressed(true)"  @mouseup="checkMousePressed(false)" >
       <Table   v-bind:isMouseClicked="isMouseClicked"     />
       <div  >{{isMouseClicked}}</div>
-      <InputValue  v-bind:setTemperatureValue="setTemperatureValue"/>
+      <input style="border:2px solid black" type="number" @change="setTemperatureValue(temretureValue)" v-model="tempretureValue" >
       </div>
 </template>  
 <script>
 
 
 import Table from './components/TableWrapper.vue'
-import InputValue from './components/InputValue'
+
 
 
 
 export default {
   data(){
-        return  {isMouseClicked:false}
+        return  {
+            isMouseClicked:false,
+            tempretureValue:20
+        }
       },
     components:{
-      Table,InputValue
+      Table
     },methods:{
         checkMousePressed(pressValue){
           // преверяю зажата ли лкм
@@ -26,8 +29,12 @@ export default {
           this.isMouseClicked=pressValue
           return {}
         },
-        setTemperatureValue(temperatue){
-          console.log(temperatue)
+        setTemperatureValue(temperature){
+          this.temretureValue=temperature
+          console.log(temperature)
+        },
+        computed:{
+          
         }
       }
 }

@@ -20,6 +20,13 @@ export default {
     methods: {
       colorizeCellOnMouseOver(ArrayIndex,itemID,singleObject) {
         //закрашивает при наведении зажатой кнопки мыши
+
+          let createColor=()=>{
+            
+            
+
+          }
+
         if(this.isMouseClicked){
           //если пкм зажата прохожу циклом по массиву 
              this.splitedArray[ArrayIndex].splice(itemID,1,{...singleObject,color:'rgb(200,200,200)'})
