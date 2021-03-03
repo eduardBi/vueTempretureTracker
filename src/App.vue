@@ -3,6 +3,8 @@
       <Table   v-bind:isMouseClicked="isMouseClicked"     />
       <div  >{{isMouseClicked}}</div>
       <input style="border:2px solid black" type="number" @change="setTemperatureValue(temretureValue)" v-model="tempretureValue" >
+
+      <input style="border:2px solid black" type="number" @change="setTemperatureValueMax(temretureMax)" v-model="temretureMax"  >
       </div>
 </template>  
 <script>
@@ -17,7 +19,8 @@ export default {
   data(){
         return  {
             isMouseClicked:false,
-            tempretureValue:20
+            tempretureValue:20,
+            temretureMax:100
         }
       },
     components:{
@@ -30,8 +33,14 @@ export default {
           return {}
         },
         setTemperatureValue(temperature){
+          //заполнаяемое значение в таблице 
           this.temretureValue=temperature
           console.log(temperature)
+        },
+        setTemperatureValueMax(temperature){
+          //максимальное значение влияет только на температуру 
+          this.temretureMax=temperature
+          console.log(this.temretureMax)
         },
         computed:{
           

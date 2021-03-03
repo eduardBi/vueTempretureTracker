@@ -21,8 +21,18 @@ export default {
       colorizeCellOnMouseOver(ArrayIndex,itemID,singleObject) {
         //закрашивает при наведении зажатой кнопки мыши
 
-          let createColor=()=>{
-            
+          let createColor=(colorValue)=>{
+            //let thirdPart=colorValue/3
+            console.log(colorValue)
+            //нахожу треть от максимального числа 
+             /* if(){
+
+              }else if(){
+              
+              }else if(){
+
+              }*/
+
             
 
           }
