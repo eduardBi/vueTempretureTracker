@@ -2,7 +2,7 @@
 <table >
   
         <!-- прохожу по массиву с масивами --> 
-        <TableRow   v-for="(item,index) in splitedArray" :key="index" v-bind:oneRowArray="item"  :ArrayIndex="index" :colorizeCellOnMouseOver="colorizeCellOnMouseOver" :colorizeCellOnMouseClick="colorizeCellOnMouseClick" />
+        <TableRow   v-for="(item,index) in splitedArray" :key="index" v-bind:oneRowArray="item"  :ArrayIndex="index" :colorizeCellOnMouseOver="colorizeCellOnMouseOver" :colorizeCellOnMouseClick="colorizeCellOnMouseClick"  />
         <!-- передаю данные в таблицу к дочерним компонентам-->
         <div  >{{isMouseClicked}}</div>
   
@@ -21,36 +21,20 @@ export default {
       colorizeCellOnMouseOver(ArrayIndex,itemID,singleObject) {
         //закрашивает при наведении зажатой кнопки мыши
 
-          let createColor=(colorValue)=>{
-            //let thirdPart=colorValue/3
-            console.log(colorValue)
-            //нахожу треть от максимального числа 
-             /* if(){
-
-              }else if(){
-              
-              }else if(){
-
-              }*/
-
-            
-
-          }
-
         if(this.isMouseClicked){
           //если пкм зажата прохожу циклом по массиву 
-             this.splitedArray[ArrayIndex].splice(itemID,1,{...singleObject,color:'rgb(200,200,200)'})
+             this.splitedArray[ArrayIndex].splice(itemID,1,{...singleObject,color:this.createColor})
              
         }
         
       },
        colorizeCellOnMouseClick(ArrayIndex,itemID,singleObject){
          //закрашивает при клике на элемент
-           this.splitedArray[ArrayIndex].splice(itemID,1,{...singleObject,color:'rgb(200,200,200)'})
-         }
+           this.splitedArray[ArrayIndex].splice(itemID,1,{...singleObject,color:this.createColor})
+         },
     }
     ,
-    props:['isMouseClicked'],
+    props:['isMouseClicked','temretureMax'],
     computed:{
         SplitingBaseArray(){
           //функция разделения входного массива  
@@ -71,10 +55,22 @@ export default {
           console.log(this.splitedArray)
           return this.table
              
-      }
+      },createColor(){
+        console.log(this.temretureMax)
+              if(this.temretureMax>50 &&  this.temretureMax<100){
+                let yellowish=this.temretureMax*2
+                  return `rgb(250,255,${yellowish})`
+              }else if(this.temretureMax<50){
+                  return 'rgb(100,255,100)'
+              }else if(this.temretureMax>100){
+                  return 'rgb(255,100,100)'
+              }
+              return ''
+          }
       },
       mounted(){
           this.SplitingBaseArray
+          
           
       }
       ,
@@ -134,8 +130,9 @@ export default {
             
           ],rowCount:4
         //количество строк
-        ,splitedArray:[]
+        ,splitedArray:[],
         }
+
       }
 }
 
