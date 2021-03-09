@@ -1,19 +1,22 @@
 <template>
-<table >
-  
-        <!-- прохожу по массиву с масивами --> 
-        <TableRow   
-            
-            v-for="(item,index) in splitedArray" 
-            :key="index" v-bind:oneRowArray="item"  
-            :ArrayIndex="index" 
-            :colorizeCellOnMouseOver="colorizeCellOnMouseOver" 
-            :colorizeCellOnMouseClick="colorizeCellOnMouseClick"  
-        />
-        <!-- передаю данные в таблицу к дочерним компонентам-->
-        <div  >{{isMouseClicked}}</div>
-  
-</table>
+<div class="table-wrapper-relative">
+<TableHeader></TableHeader>
+    <table  >
+
+            <!-- прохожу по массиву с масивами --> 
+
+            <TableRow   
+                v-for="(item,index) in splitedArray" 
+                :key="index" v-bind:oneRowArray="item"  
+                :ArrayIndex="index" 
+                :colorizeCellOnMouseOver="colorizeCellOnMouseOver" 
+                :colorizeCellOnMouseClick="colorizeCellOnMouseClick"  
+            />
+            <!-- передаю данные в таблицу к дочерним компонентам-->
+            <div  >{{isMouseClicked}}</div>
+      
+    </table>
+</div>
 </template>  
 <script>
 
@@ -99,6 +102,8 @@ export default {
 </script>
 <style  scoped>
 
-
+  .table-wrapper-relative{
+    position: relative;
+  }
 
 </style>
