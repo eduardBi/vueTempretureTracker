@@ -1,16 +1,21 @@
 <template>
 <div  @mousedown=" checkMousePressed(true)"  @mouseup="checkMousePressed(false)" >
-      <Table   v-bind:isMouseClicked="isMouseClicked"  v-bind:temretureMax="temretureMax"   />
-      <div  >{{isMouseClicked}}</div>
-      <input style="border:2px solid black" type="number" @change="setTemperatureValueMax(temretureMax)" v-model="temretureMax"  >
+      <Table  
+         v-bind:isMouseClicked="isMouseClicked"
+         v-bind:temretureMax="temretureMax"   
+      />
+      <div>{{isMouseClicked}}</div>
+      <input style="border:2px solid black" 
+        type="number" 
+        @change="setTemperatureValueMax(temretureMax)" 
+        v-model="temretureMax"  
+      >
       </div>
 </template>  
 <script>
 
 
 import Table from './components/TableWrapper.vue'
-
-
 
 
 export default {

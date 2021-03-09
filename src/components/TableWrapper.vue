@@ -2,7 +2,13 @@
 <table >
   
         <!-- прохожу по массиву с масивами --> 
-        <TableRow   v-for="(item,index) in splitedArray" :key="index" v-bind:oneRowArray="item"  :ArrayIndex="index" :colorizeCellOnMouseOver="colorizeCellOnMouseOver" :colorizeCellOnMouseClick="colorizeCellOnMouseClick"  />
+        <TableRow   
+            v-for="(item,index) in splitedArray" 
+            :key="index" v-bind:oneRowArray="item"  
+            :ArrayIndex="index" 
+            :colorizeCellOnMouseOver="colorizeCellOnMouseOver" 
+            :colorizeCellOnMouseClick="colorizeCellOnMouseClick"  
+        />
         <!-- передаю данные в таблицу к дочерним компонентам-->
         <div  >{{isMouseClicked}}</div>
   
@@ -23,14 +29,14 @@ export default {
 
         if(this.isMouseClicked){
           //если пкм зажата прохожу циклом по массиву 
-             this.splitedArray[ArrayIndex].splice(itemID,1,{...singleObject,color:this.createColor})
+             this.splitedArray[ArrayIndex].splice(itemID,1,{...singleObject,color:this.createColor(this.temretureMax)})
              
         }
         
       },
        colorizeCellOnMouseClick(ArrayIndex,itemID,singleObject){
          //закрашивает при клике на элемент
-           this.splitedArray[ArrayIndex].splice(itemID,1,{...singleObject,color:this.createColor})
+           this.splitedArray[ArrayIndex].splice(itemID,1,{...singleObject,color:this.createColor(this.temretureMax)})
          },
         createColor(value){
         let specializedColor=value*2
@@ -83,12 +89,13 @@ export default {
         ,splitedArray:[],
         }
 
-      }
+    }
 }
 
 
 </script>
 <style  scoped>
+
 
 
 </style>
