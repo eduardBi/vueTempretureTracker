@@ -1,5 +1,6 @@
 <template>
 <div  @mousedown=" checkMousePressed(true)"  @mouseup="checkMousePressed(false)" >
+    <TableHeader></TableHeader>
       <Table  
          v-bind:isMouseClicked="isMouseClicked"
          v-bind:temretureMax="temretureMax"   
@@ -16,6 +17,7 @@
 
 
 import Table from './components/TableWrapper.vue'
+import TableHeader from './components/TableHeader.vue'
 
 
 export default {
@@ -26,7 +28,7 @@ export default {
         }
       },
     components:{
-      Table
+      Table,TableHeader
     },methods:{
         checkMousePressed(pressValue){
           // преверяю зажата ли лкм

@@ -76,15 +76,17 @@ export default {
       }
       },
       mounted(){
+          for(let i=0;i<140;i++){
+              this.table.push(this.temretureMax);
+          }
           this.SplitingBaseArray
-          
-          
-      }
+
+        }
       ,
     data(){
       return{
         table:[
-            5,8,9,20,30,70,60,70,90
+            
           ],rowCount:7
         //количество строк
         ,splitedArray:[],
