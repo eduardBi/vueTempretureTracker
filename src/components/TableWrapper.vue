@@ -46,9 +46,9 @@ export default {
                     //перехожу на новый массив
                     this.splitedArray.push([]);
                     //создаю массив в массиве каждый из которых будет отправляться дочерним компонентам
-                    this.splitedArray[currentArrayIndex].push(element);
+                    this.splitedArray[currentArrayIndex].push({...element,value:this.temretureMax});
                   }else {
-                    this.splitedArray[currentArrayIndex].push(element);
+                    this.splitedArray[currentArrayIndex].push({...element,value:this.temretureMax});
                     //заполняю текущий массив 
                   }
               })
@@ -57,13 +57,13 @@ export default {
              
       },createColor(){
         console.log(this.temretureMax)
+        let specializedColor=this.temretureMax*2
               if(this.temretureMax>50 &&  this.temretureMax<100){
-                let yellowish=this.temretureMax*2
-                  return `rgb(250,255,${yellowish})`
+                  return `rgb(250,${specializedColor},${specializedColor})`
               }else if(this.temretureMax<50){
-                  return 'rgb(100,255,100)'
+                  return `rgb(100,${specializedColor},100)`
               }else if(this.temretureMax>100){
-                  return 'rgb(255,100,100)'
+                  return `rgb(255,${specializedColor},100)`
               }
               return ''
           }
@@ -128,7 +128,7 @@ export default {
               text:'mine text'
             }
             
-          ],rowCount:4
+          ],rowCount:7
         //количество строк
         ,splitedArray:[],
         }
