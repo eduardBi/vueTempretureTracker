@@ -3,6 +3,7 @@
   
         <!-- прохожу по массиву с масивами --> 
         <TableRow   
+            
             v-for="(item,index) in splitedArray" 
             :key="index" v-bind:oneRowArray="item"  
             :ArrayIndex="index" 
@@ -29,14 +30,14 @@ export default {
 
         if(this.isMouseClicked){
           //если пкм зажата прохожу циклом по массиву 
-             this.splitedArray[ArrayIndex].splice(itemID,1,{...singleObject,color:this.createColor(this.temretureMax)})
+             this.splitedArray[ArrayIndex].splice(itemID,1,{...singleObject,color:this.createColor(this.temretureMax),value:this.temretureMax})
              
         }
         
       },
        colorizeCellOnMouseClick(ArrayIndex,itemID,singleObject){
          //закрашивает при клике на элемент
-           this.splitedArray[ArrayIndex].splice(itemID,1,{...singleObject,color:this.createColor(this.temretureMax)})
+           this.splitedArray[ArrayIndex].splice(itemID,1,{...singleObject,color:this.createColor(this.temretureMax),value:this.temretureMax})
          },
         createColor(value){
         let specializedColor=value*2
