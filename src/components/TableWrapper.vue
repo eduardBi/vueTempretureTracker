@@ -32,6 +32,17 @@ export default {
          //закрашивает при клике на элемент
            this.splitedArray[ArrayIndex].splice(itemID,1,{...singleObject,color:this.createColor})
          },
+        createColor(value){
+        let specializedColor=value*2
+              if(this.temretureMax>50 &&  this.temretureMax<100){
+                  return `rgb(250,${specializedColor},${specializedColor})`
+              }else if(this.temretureMax<50){
+                  return `rgb(100,${specializedColor},100)`
+              }else if(this.temretureMax>100){
+                  return `rgb(255,${specializedColor},100)`
+              }
+              return ''
+          }
     }
     ,
     props:['isMouseClicked','temretureMax'],
@@ -46,27 +57,16 @@ export default {
                     //перехожу на новый массив
                     this.splitedArray.push([]);
                     //создаю массив в массиве каждый из которых будет отправляться дочерним компонентам
-                    this.splitedArray[currentArrayIndex].push({...element,value:this.temretureMax});
+                    this.splitedArray[currentArrayIndex].push({value:element,color:this.createColor(element)});
                   }else {
-                    this.splitedArray[currentArrayIndex].push({...element,value:this.temretureMax});
+                    this.splitedArray[currentArrayIndex].push({value:element,color:this.createColor(element)});
                     //заполняю текущий массив 
                   }
               })
           console.log(this.splitedArray)
           return this.table
              
-      },createColor(){
-        console.log(this.temretureMax)
-        let specializedColor=this.temretureMax*2
-              if(this.temretureMax>50 &&  this.temretureMax<100){
-                  return `rgb(250,${specializedColor},${specializedColor})`
-              }else if(this.temretureMax<50){
-                  return `rgb(100,${specializedColor},100)`
-              }else if(this.temretureMax>100){
-                  return `rgb(255,${specializedColor},100)`
-              }
-              return ''
-          }
+      }
       },
       mounted(){
           this.SplitingBaseArray
@@ -77,57 +77,7 @@ export default {
     data(){
       return{
         table:[
-            {
-                id:1,
-                text:'my text',
-                color:'rgba(100,200,200)'
-            },{
-              id:2,
-              text:'new text'
-            },{
-              id:3,
-              text:'mine text'
-            },  {
-                id:1,
-                text:'my text',
-                color:'rgba(100,200,200)'
-            },{
-              id:2,
-              text:'new text'
-            },{
-              id:3,
-              text:'mine text'
-            }, {
-                id:1,
-                text:'my text',
-                color:'rgba(100,200,200)'
-            },{
-              id:2,
-              text:'new text'
-            },{
-              id:3,
-              text:'mine text'
-            }, {
-                id:1,
-                text:'my text',
-                color:'rgba(100,200,200)'
-            },{
-              id:2,
-              text:'new text'
-            },{
-              id:3,
-              text:'mine text'
-            } ,{
-                id:1,
-                text:'my text'
-            },{
-              id:2,
-              text:'new text'
-            },{
-              id:3,
-              text:'mine text'
-            }
-            
+            5,8,9,20,30,70,60,70,90
           ],rowCount:7
         //количество строк
         ,splitedArray:[],
