@@ -44,8 +44,11 @@ export default {
            this.splitedArray[ArrayIndex].splice(itemID,1,{...singleObject,color:this.createColor(this.temretureMax),value:this.temretureMax})
          },
         createColor(value){
-        let specializedColor=value
-           return `hsl(${specializedColor},70%, 50%)`;
+          
+            if(value>=150){
+                return `hsl(${0},70%, 50%)`;   
+            }
+           return `hsl(${155-value},70%, 50%)`;
           }
     }
     ,
