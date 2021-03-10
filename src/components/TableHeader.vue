@@ -14,29 +14,29 @@ data(){
       return{
         weekData:[
             {
-                value:'время/день'
+                value:'время'
             },
             {
-                value:'понедельник'
+                value:'пн'
             },
             {
-                value:'вторник'
+                value:'вт'
             },
             {
-                value:'среда'
+                value:'ср'
             },
             {
-                value:'четверг'
+                value:'чт'
             }
             ,
             {
-                value:'пятница'
+                value:'пт'
             },
             {
-                value:'суббота'
+                value:'сб'
             },
             {
-                value:'воскреснье'
+                value:'вс'
             }   
           ]
         }

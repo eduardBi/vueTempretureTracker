@@ -45,14 +45,7 @@ export default {
          },
         createColor(value){
         let specializedColor=value
-              if(this.temretureMax>=50 &&  this.temretureMax<=100){
-                  return `rgb(${specializedColor*3},${specializedColor*3},0)`
-              }else if(this.temretureMax<=50){
-                  return `rgb(10,${specializedColor*5},10)`
-              }else if(this.temretureMax>=100){
-                  return `rgb(${specializedColor*1.5},20,60)`
-              }
-              return ''
+           return `hsl(${specializedColor},70%, 50%)`;
           }
     }
     ,
