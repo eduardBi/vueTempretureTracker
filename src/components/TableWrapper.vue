@@ -1,23 +1,22 @@
 <template>
-<div class="table-wrapper-relative">
-
-
     <table 
     >
             <!-- прохожу по массиву с масивами -->
+            <thead>
             <TableHeader></TableHeader>
-              
-                <TableRow   
-                    v-for="(item,index) in splitedArray" 
-                    :key="index" v-bind:oneRowArray="item"  
-                    :ArrayIndex="index" 
-                    :colorizeCellOnMouseOver="colorizeCellOnMouseOver" 
-                    :colorizeCellOnMouseClick="colorizeCellOnMouseClick"  
-                />
+              </thead>
+              <tbody>
+                  <TableRow   
+                      v-for="(item,index) in splitedArray" 
+                      :key="index" v-bind:oneRowArray="item"  
+                      :ArrayIndex="index" 
+                      :colorizeCellOnMouseOver="colorizeCellOnMouseOver" 
+                      :colorizeCellOnMouseClick="colorizeCellOnMouseClick"  
+                  />
+                </tbody>
             
             <!-- передаю данные в таблицу к дочерним компонентам-->
     </table>
-</div>
 </template>  
 <script>
 
@@ -107,5 +106,6 @@ export default {
   .table-wrapper-relative{
     position: relative;
   }
+ 
 
 </style>

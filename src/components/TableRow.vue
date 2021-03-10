@@ -1,7 +1,7 @@
 <template >
     <tr > 
     <td 
-        v-bind:style="{'background':'purple','border':'2px solid black', width : '10vw' }" 
+        style="background-color: #009879"
     >
       {{timeData[ArrayIndex]}}
     </td>
@@ -9,7 +9,7 @@
         <td 
             class="table-wrapper-item"
             v-for="(singleObject,index) in oneRowArray"
-            v-bind:style="{'background':singleObject.color,'border':'2px solid black', width : '15vw' }" 
+            v-bind:style="{'background':singleObject.color ,width:'15vw'}" 
             :key="index"    
             @mouseover="colorizeCellOnMouseOver(ArrayIndex,index,singleObject)" 
             @mousedown="colorizeCellOnMouseClick(ArrayIndex,index,singleObject)"   
@@ -47,8 +47,10 @@ export default {
 
 </script>
 <style  scoped>
-    .table-wrapper-item{
-      
+    
+    td{
+      border: 2px solid white;
     }
 
+  
 </style>

@@ -1,17 +1,9 @@
 <template>
     
-   <tr>
-            <td 
-
-            style="
-                background-color: #009879;
-                color: #ffffff;
-                margin:2rem;
-            "
-                v-for="item in weekData" 
-                :key="item"
-            >{{item.value}}</td>
-    </tr>
+   <tr style="background-color: #009879;
+    color: #ffffff;">
+            <td v-for="(item  ,index) in weekData" :key="index">{{item.value}}</td>
+          </tr>
 
 </template>
 
@@ -22,8 +14,8 @@ data(){
       return{
         weekData:[
             {
-                value:' время / день '
-            }, 
+                value:'время/день'
+            },
             {
                 value:'понедельник'
             },
@@ -38,7 +30,7 @@ data(){
             }
             ,
             {
-                    value:'пятница'
+                value:'пятница'
             },
             {
                 value:'суббота'
@@ -49,36 +41,9 @@ data(){
           ]
         }
     },
-    computed:{
-            FillTimeTable(){
-                //заполняю массив время
-                let timeArray=[];
-                  for(let i=0;i<24;i++)  {
-                      timeArray.push(`${i}:00`)
-                  }
-                  return timeArray
-            }
-    },
-    mounted(){
-        this.timeData=this.FillTimeTable
-        console.log(this.timeData)
-    }
 }
 </script>
 
 <style soped>
 
-    .horizontal{
-        flex-direction: column;
-    }
-    .vertical{
-        width: 100%;
-        justify-content: space-between;
-    }
-    .vertical>*{
-        width: 100%;
-    }
-    .flex{
-        display: flex;
-    }
 </style>

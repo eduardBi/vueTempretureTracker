@@ -52,9 +52,23 @@ export default {
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
+      
+    }
+
+    :root{
+      color: #ffffff
+    }
+
+    table{
+        border-collapse:collapse;
     }
     
-    
+    td{
+      border: 2px solid white;
+      text-indent: 10px;
+      line-height: 1.5em;
+    }
+
 
 
 </style>
