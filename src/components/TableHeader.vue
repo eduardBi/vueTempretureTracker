@@ -1,13 +1,8 @@
 <template>
     
-    <div >
-         <div class="table-header flex vertical" >
-            <div v-for="item in weekData" :key='item'>{{item}}</div>
-        </div>
-         <div class="table-header flex horizontal">
-            <div v-for="item in timeData" :key='item'>{{item}}</div>
-        </div>
-    </div>
+   <tr>
+            <td v-for="item in weekData" :key="item">{{item.value}}</td>
+          </tr>
 
 </template>
 
@@ -17,9 +12,32 @@ export default {
 data(){
       return{
         weekData:[
-            '','понедельник','вторник',"среда","четверг","пятница","суббота",'воскреснье'    
-          ],
-        timeData:[],
+            {
+                value:''
+            },
+            {
+                value:'понедельник'
+            },
+            {
+                value:'вторник'
+            },
+            {
+                value:'среда'
+            },
+            {
+                value:'четверг'
+            }
+            ,
+            {
+                value:'пятница'
+            },
+            {
+                value:'суббота'
+            },
+            {
+                value:'воскреснье'
+            }   
+          ]
         }
     },
     computed:{

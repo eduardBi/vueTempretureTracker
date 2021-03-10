@@ -4,6 +4,7 @@
       {{timeData[ArrayIndex]}}
     </td>
         <td 
+            class="table-wrapper-item"
             v-for="(singleObject,index) in oneRowArray"
             v-bind:style="{'background':singleObject.color,'border':'2px solid black', width : '15vw' }" 
             :key="index"    
@@ -20,7 +21,7 @@
 export default {
     data(){
       return {
-             timeData:[]
+             timeData:[],
         }
       },
        computed:{
@@ -43,6 +44,8 @@ export default {
 
 </script>
 <style  scoped>
-
+    .table-wrapper-item{
+      
+    }
 
 </style>

@@ -1,10 +1,10 @@
 <template>
 <div class="table-wrapper-relative">
-<TableHeader></TableHeader>
+
+
     <table  >
-
-            <!-- прохожу по массиву с масивами --> 
-
+            <!-- прохожу по массиву с масивами -->
+            <TableHeader></TableHeader>
             <TableRow   
                 v-for="(item,index) in splitedArray" 
                 :key="index" v-bind:oneRowArray="item"  
@@ -21,11 +21,12 @@
 <script>
 
 import TableRow from './TableRow.vue'
+import TableHeader from './TableHeader.vue'
 
 export default {
   
     components:{
-        TableRow
+        TableRow,TableHeader
     },
     methods: {
       colorizeCellOnMouseOver(ArrayIndex,itemID,singleObject) {
