@@ -45,12 +45,7 @@ export default {
          },
         createColor(value){
 
-          
-
-            if(value>=150){
-                return `hsl(${0},70%, 50%)`;   
-            }
-           return `hsl(${155-Math.abs(value)},70%, 50%)`;
+           return `hsl(${440-15*value},70%, 50%)`;
           }
     }
     ,
