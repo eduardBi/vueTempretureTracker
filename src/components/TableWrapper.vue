@@ -34,21 +34,23 @@ export default {
 
         if(this.isMouseClicked){
           //если пкм зажата прохожу циклом по массиву 
-             this.splitedArray[ArrayIndex].splice(itemID,1,{...singleObject,color:this.createColor(this.temretureMax),value:this.temretureMax})
+             this.splitedArray[ArrayIndex].splice(itemID,1,{...singleObject,color:this.createColor(this.temretureMax),value:Math.abs(this.temretureMax)})
              
         }
         
       },
        colorizeCellOnMouseClick(ArrayIndex,itemID,singleObject){
          //закрашивает при клике на элемент
-           this.splitedArray[ArrayIndex].splice(itemID,1,{...singleObject,color:this.createColor(this.temretureMax),value:this.temretureMax})
+           this.splitedArray[ArrayIndex].splice(itemID,1,{...singleObject,color:this.createColor(this.temretureMax),value:Math.abs(this.temretureMax)})
          },
         createColor(value){
+
           
+
             if(value>=150){
                 return `hsl(${0},70%, 50%)`;   
             }
-           return `hsl(${155-value},70%, 50%)`;
+           return `hsl(${155-Math.abs(value)},70%, 50%)`;
           }
     }
     ,
