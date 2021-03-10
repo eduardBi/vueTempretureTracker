@@ -2,19 +2,20 @@
 <div class="table-wrapper-relative">
 
 
-    <table  >
+    <table 
+    >
             <!-- прохожу по массиву с масивами -->
             <TableHeader></TableHeader>
-            <TableRow   
-                v-for="(item,index) in splitedArray" 
-                :key="index" v-bind:oneRowArray="item"  
-                :ArrayIndex="index" 
-                :colorizeCellOnMouseOver="colorizeCellOnMouseOver" 
-                :colorizeCellOnMouseClick="colorizeCellOnMouseClick"  
-            />
+              
+                <TableRow   
+                    v-for="(item,index) in splitedArray" 
+                    :key="index" v-bind:oneRowArray="item"  
+                    :ArrayIndex="index" 
+                    :colorizeCellOnMouseOver="colorizeCellOnMouseOver" 
+                    :colorizeCellOnMouseClick="colorizeCellOnMouseClick"  
+                />
+            
             <!-- передаю данные в таблицу к дочерним компонентам-->
-            <div  >{{isMouseClicked}}</div>
-      
     </table>
 </div>
 </template>  
@@ -44,13 +45,13 @@ export default {
            this.splitedArray[ArrayIndex].splice(itemID,1,{...singleObject,color:this.createColor(this.temretureMax),value:this.temretureMax})
          },
         createColor(value){
-        let specializedColor=value*2
-              if(this.temretureMax>50 &&  this.temretureMax<100){
-                  return `rgb(250,${specializedColor},${specializedColor})`
-              }else if(this.temretureMax<50){
-                  return `rgb(100,${specializedColor},100)`
-              }else if(this.temretureMax>100){
-                  return `rgb(255,${specializedColor},100)`
+        let specializedColor=value
+              if(this.temretureMax>=50 &&  this.temretureMax<=100){
+                  return `rgb(${specializedColor*3},${specializedColor*3},0)`
+              }else if(this.temretureMax<=50){
+                  return `rgb(10,${specializedColor*5},10)`
+              }else if(this.temretureMax>=100){
+                  return `rgb(${specializedColor*1.5},20,60)`
               }
               return ''
           }

@@ -1,8 +1,11 @@
 <template >
-    <tr> 
-    <td>
+    <tr > 
+    <td 
+        v-bind:style="{'background':'purple','border':'2px solid black', width : '10vw' }" 
+    >
       {{timeData[ArrayIndex]}}
     </td>
+      
         <td 
             class="table-wrapper-item"
             v-for="(singleObject,index) in oneRowArray"

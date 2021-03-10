@@ -1,8 +1,17 @@
 <template>
     
    <tr>
-            <td v-for="item in weekData" :key="item">{{item.value}}</td>
-          </tr>
+            <td 
+
+            style="
+                background-color: #009879;
+                color: #ffffff;
+                margin:2rem;
+            "
+                v-for="item in weekData" 
+                :key="item"
+            >{{item.value}}</td>
+    </tr>
 
 </template>
 
@@ -13,8 +22,8 @@ data(){
       return{
         weekData:[
             {
-                value:''
-            },
+                value:' время / день '
+            }, 
             {
                 value:'понедельник'
             },
@@ -29,7 +38,7 @@ data(){
             }
             ,
             {
-                value:'пятница'
+                    value:'пятница'
             },
             {
                 value:'суббота'
